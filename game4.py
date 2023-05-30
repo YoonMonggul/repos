@@ -16,6 +16,11 @@ def fail():
 
     import fail
 
+canvas = Canvas(win, width = 2560, height = 1440)
+
+BGA = PhotoImage(file = "image3.png")
+canvas.create_image(1280, 720, image = BGA)
+
 lab = Label(win, text = "다음 중 틀린 그림이었던 것은?")
 
 image1 = PhotoImage(file = "MomoFriends.png")
@@ -23,10 +28,11 @@ image2 = PhotoImage(file = "peroro.png")
 image3 = PhotoImage(file = "pink.png")
 image4 = PhotoImage(file = "wavecat.png")
 
-label1 = Label(win, width = 300, height = 300, image = image1)
-label2 = Label(win, width = 300, height = 300, image = image2)
-label3 = Label(win, width = 300, height = 300, image = image3)
-label4 = Label(win, width = 300, height = 300, image = image4)
+canvas.create_image(200, 400, image = image1)
+canvas.create_image(500, 400, image = image2)
+canvas.create_image(800, 400, image = image3)
+canvas.create_image(1050, 400, image = image4)
+
 
 button1 = Button(win, overrelief = "solid", width = 5, repeatdelay=1000, repeatinterval=100)
 button1.config(text = "선택")
@@ -44,11 +50,9 @@ button4 = Button(win, overrelief = "solid", width = 5, repeatdelay=1000, repeati
 button4.config(text = "선택")
 button4.config(command = fail)
 
-lab.pack()
-label1.place(x = 50 ,y = 250)
-label2.place(x = 350 ,y = 250)
-label3.place(x = 650 ,y = 250)
-label4.place(x = 900 ,y = 250)
+canvas.pack()
+
+lab.place(x = 400, y = 100)
 
 button1.place(x = 150 ,y = 600)
 button2.place(x = 430 ,y = 600)
